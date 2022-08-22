@@ -27,7 +27,7 @@ export const fetchPlugin = (inputCode: string) => {
 			build.onLoad({filter: /.css$/}, async (args) => {
 				const {data, request} = await axios.get(args.path)
 				const escaped = data
-					// new line have been removed
+					// new lines have been removed
 					.replace(/\n/g, '')
 					// double quotes have been escaped
 					.replace(/"/g, '\\"')
@@ -43,7 +43,6 @@ export const fetchPlugin = (inputCode: string) => {
 					resolveDir: new URL('./', request.responseURL).pathname
 				}
 
-				// if its not, cache it
 				await fileCache.setItem(args.path, result)
 				return result
 			})
