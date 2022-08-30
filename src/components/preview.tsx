@@ -17,7 +17,6 @@ const html = `
 						const handleError = (err) => {
 							const root = document.querySelector('#root');
 							root.innerHTML = '<div style="color: red;"><h4>Runtime Error</h4>' + err + '</div>'
-							console.error(err);
 						}
 						window.addEventListener('error', (event) => {
 							event.preventDefault();
@@ -45,7 +44,6 @@ const Preview: React.FC<PreviewProps> = ({code, err}) => {
 		}, 50)
 	}, [code])
 
-	console.log(err)
 	return (
 		<div className='preview-wrapper'>
 			<iframe
